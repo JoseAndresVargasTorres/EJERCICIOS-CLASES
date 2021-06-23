@@ -132,10 +132,10 @@ carro2 = Auto("REF-233", "Toyota", 4 , 120000, 15000, "2010", "diessel")
 carro3 = Auto("345678", "Subaru", 4 , 1000, 1030, "2010", "plus 91")
 carro4 = Auto("LOL-2354", "Mitsubishi montero", 4 , 500, 1230, "2010", "diessel")
 
-moto1 = Moto("ewr-566","Honda", 2,130000,140, "Chopper","200cc")
-moto2 = Moto("rfi-321","Honda", 2,1300,100, "Chopper","200cc")
-moto3 = Moto("79292","Honda", 2,20000,20, "Chopper","200cc")
-moto4 = Moto("455-rfe","Honda", 2,10000,30, "Chopper","200cc")
+moto1 = Moto("ewr-566","Honda", 2,130000,140, "Chopper","100cc")
+moto2 = Moto("rfi-321","Honda", 2,1300,100, "Pandillera","600cc")
+moto3 = Moto("79292","Honda", 2,20000,20, "Chopper","400cc")
+moto4 = Moto("455-rfe","Honda", 2,10000,30, "Pandillera","500cc")
 
 lista_carros = [carro1,carro2,carro3,carro4,moto1,moto2,moto3,moto4]
 
@@ -150,3 +150,71 @@ def vehiculo_kms(vehiculos):
 #vehiculo_kms(lista_carros)
 
 
+
+"""
+Ejercicio 1 
+
+Se desea construir un objeto tipo camion, conteniendo el numero de placa,
+marca, año, estado camion (libre, ocupado, reparacion) capacidad de carga en
+kg. y cantidad de viajes realizados. Los metodos a implementar son: mostrar (),
+reset () que pone en cero la cantidad de viajes realizados, enviarReparacion ()
+(actualiza el estado del camion a reparaciòn), recibir_reparacion (actualiza el estado decamion a libre)
+ y actualiza Viajes (), que aumenta en 1 la cantidad de viajes
+realizados.
+a. Defina una clase Camion para el manejo de estos objetos, los cuales
+pertenecen a una empresa de transportes. (Valor 15%)
+b. Luego de tener definida la clase, se asume que se tiene la lista de
+instancias y que se quiere construir una funcion llamada pedido, para saber cual o cuales camiones podran transportar una determinada
+mercaderia. En este caso se recibirian como argumentos de la funcion: la
+lista de instancias, la cantidad de kg a transportar y se deben mostrar los
+camiones libres y con suficiente capacidad podrian cubrir
+el pedido. (Valor 15%)
+"""
+
+class Camion:
+    def __init__(self,placa,marca,anno,estado_camion,cap_de_carga,viajes_realizados):
+        self.placa = placa
+        self.marca = marca
+        self.anno = anno
+        self.estado_camion = estado_camion
+        self.cap_de_carga = cap_de_carga
+        self.viajes_realizados = viajes_realizados
+
+    def mostrar(self):
+        print("Placa:   {}".format(str(self.placa)))
+        print("Marca:   {}".format(str(self.marca)))
+        print("Año:   {}".format(str(self.anno)))
+        print("Estado:   {}".format(str(self.estado_camion)))
+        print("Capacidad de carga:   {}".format(str(self.cap_de_carga)))
+        print("Viajes realizados:   {}".format(str(self.viajes_realizados)))
+
+    def reset(self):
+        self.viajes_realizados = 0
+
+    def enviar_reparacion(self):
+        self.estado_camion = "reparación"
+
+    def recibir_reparacion(self):
+        self.estado_camion = "libre"
+
+    def actualiza_viajes(self):
+        self.viajes_realizados +=1
+
+
+camion1 =Camion("YRQ-466","Toyota",2018,"libre",1000,3)
+camion2 =Camion("324566","Suzuki",2014,"libre",10000,3)
+camion3 =Camion("529729","Nissan",2017,"libre",15000,3)
+camion4 =Camion("EWD-788","Hyundai",2019,"libre",500,3)
+camion5 =Camion("POO-456","Subaru",2011,"libre",3000,3)
+
+lista_camiones = [camion1,camion2,camion3,camion4,camion5]
+
+def pedido(camiones, cap_minima):
+    if not isinstance(camiones,list):
+        return "Error"
+    for camion in camiones:
+        if camion.estado_camion == "libre":
+            if camion.cap_de_carga >=cap_minima:
+                camion.mostrar()
+
+pedido(lista_camiones,9000)
