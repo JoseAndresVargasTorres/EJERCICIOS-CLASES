@@ -126,3 +126,19 @@ Utilizando el lenguaje de programacion Python, se le solicita lo siguiente:
 quiere construir una funcion llamada solicita(lista, tipo, calificacion minima), que
 recibe esa lista de instancias para saber cuales vehiculos podran transportar un cliente
 segun un tipo de vehiculo y la calificacion minima solicitada por el cliente. 30 puntos.
+
+2. Un negocio vende CDs y DVDs. Cada uno de estos articulos tiene un tipo (CD o
+DVD), titulo, precio, duracion en minutos, autor y ventas en unidades (inicia en cera
+cuando se crea una instancia). Se desea construir un objeto Articulo con los datos
+indicados. Los metodos a implementar son: most rar, que muestra todos los datos
+de un articulo, venta que recibe una cantidad y actualiza (suma) las ventas del
+
+articulo, devolucion que recibe una cantidad y actualiza (resta) las ventas del
+articulo.
+a. Defina una clase Articulo para el manejo de estos objetos. (35 pts)
+b. Luego de tener definida la clase, se asume que se tiene una lista de instancias
+
+y que se quiere construir una funcion llamada top, para saber cual es el DVD
+que registra mas ventas y cual es el DVD que registra mas devoluciones. En
+este caso se recibiria como argumento de la funcion la lista de instancias. (30
+pts)

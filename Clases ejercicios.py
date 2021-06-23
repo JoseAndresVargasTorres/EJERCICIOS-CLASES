@@ -217,4 +217,103 @@ def pedido(camiones, cap_minima):
             if camion.cap_de_carga >=cap_minima:
                 camion.mostrar()
 
-pedido(lista_camiones,9000)
+#pedido(lista_camiones,9000)
+
+
+
+"""
+
+2. Un negocio vende CDs y DVDs. Cada uno de estos articulos tiene un tipo (CD o
+DVD), titulo, precio, duracion en minutos, autor y ventas en unidades (inicia en cero
+cuando se crea una instancia). Se desea construir un objeto Articulo con los datos
+indicados. Los metodos a implementar son: mostrar, que muestra todos los datos
+de un articulo, venta que recibe una cantidad y actualiza (suma) las ventas del
+
+articulo, devolucion que recibe una cantidad y actualiza (resta) las ventas del
+articulo.
+a. Defina una clase Articulo para el manejo de estos objetos. (35 pts)
+b. Luego de tener definida la clase, se asume que se tiene una lista de instancias
+
+y que se quiere construir una funcion llamada top, para saber cual es el DVD
+que registra mas ventas y cual es el DVD que registra mas devoluciones. En
+este caso se recibiria como argumento de la funcion la lista de instancias. (30
+pts)
+
+"""
+class Articulo:
+    def __init__(self,tipo,titulo,precio,duracion,autor,cantidad_de_ventas):
+        self.tipo = tipo
+        self.titulo = titulo
+        self.precio = precio
+        self.duracion = duracion
+        self.autor = autor
+        self.cantidad_de_ventas = cantidad_de_ventas
+
+    def mostrar(self):
+        print("Tipo:   {}".format(str(self.tipo)))
+        print("Tìtulo:   {}".format(str(self.titulo)))
+        print("Precio:   {}".format(str(self.precio)))
+        print("Duración:   {}".format(str(self.duracion)))
+        print("Autor:   {}".format(str(self.autor)))
+        print("Cantidad de ventas:   {}".format(str(self.cantidad_de_ventas)))
+
+    def venta(self,cantidad):
+        self.cantidad_de_ventas = cantidad
+        return self.cantidad_de_ventas
+    def devolucion(self,cantidad):
+        self.cantidad_de_ventas = cantidad
+        return self.cantidad_de_ventas
+
+
+articulo1 = Articulo("CD", "How deep is your love", 10000, 30, "Beegees",0)
+articulo1.venta(34)
+articulo1.devolucion(21)
+
+articulo2 = Articulo("DVD", "November Rain", 15000, 30, "Lez Zeppelin",0)
+articulo2.venta(54)
+articulo2.devolucion(34)
+
+articulo3 = Articulo("CD", "Dancing Queen", 1300, 30, "ABBA",0)
+articulo3.venta(21)
+articulo3.devolucion(12)
+
+articulo4 = Articulo("DVD", "Imagine", 5000, 30, "John Lennon",0)
+articulo4.venta(10)
+articulo4.devolucion(43)
+
+
+lista_articulos = [articulo1,articulo2,articulo3,articulo4]
+
+
+def top(articulos):
+    if not isinstance(articulos,list):
+        return "ERROR"
+    mayor_ventas = articulo1.cantidad_de_ventas
+    menor_ventas = articulo1.cantidad_de_ventas
+    for articulo in articulos:
+        if articulo > mayor_
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
