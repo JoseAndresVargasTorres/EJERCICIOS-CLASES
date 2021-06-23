@@ -41,7 +41,7 @@ empleado2 = Empleado(343,"Esteban", 134000)
 empleado3 = Empleado(1,"Ramiro", 1021000)
 empleado4 = Empleado(1145,"Pedro", 12000)
 
-empleado1.aumentar_deuda(1000)
+#empleado1.aumentar_deuda(1000)
 lista_empleados = [empleado1,empleado2,empleado3,empleado4]
 
 def salario_mayor(empleados):
@@ -58,7 +58,7 @@ def salario_mayor(empleados):
     print("El empleado con mayor salario corresponde a: ")
     return empleado_mayor.mostrar()
 
-salario_mayor(lista_empleados)
+#salario_mayor(lista_empleados)
 
 
 
@@ -91,7 +91,7 @@ class Vehiculo:
         self.cporkm = cporkm
 
     def mostrar(self):
-        print("El número de placa es: ".format(self.placa))
+        print("El número de placa es: ".format(str(self.placa)))
         print("La marca del carro es: ".format(self.marca))
         print("La cantidad de ruedas corresponde a: ".format(self.c_de_ruedas))
         print("El kilometraje corresponde a: ".format(self.k))
@@ -100,17 +100,17 @@ class Vehiculo:
     def hacer_viaje(self,kms):
         self.k += kms
 
-vehiculo1 = Vehiculo("YRQ-466","Toyota",4,1000,)
+
 
 class Auto(Vehiculo):
     def __init__(self,placa,marca,c_de_ruedas,k,cporkm,modelo,combustible):
-        super(Auto, self).__init__(placa,marca,c_de_ruedas,k,cporkm)
+        super().__init__(placa,marca,c_de_ruedas,k,cporkm)
         self.modelo = modelo
         self.combustible = combustible
 
     def mostrar(self):
-        print("Datos del auto" + str(self.placa))
-        print(self.marca,self.c_de_ruedas,self.k,self.k,self.cporkm,self.modelo,self.combustible)
+        print("Datos de la moto placa  " + str(self.placa))
+        print("Marca: " + str(self.marca), "# de ruedas: " + str(self.c_de_ruedas), "kilometraje: " + str(self.k),"consumo por km: "+  str(self.cporkm), "modelo año: " + str(self.modelo), "tipo de combustible: " + str(self.combustible))
 
 class Moto(Vehiculo):
     def __init__(self,placa,marca,c_de_ruedas,k,cporkm,estilo,cilindraje):
@@ -118,7 +118,30 @@ class Moto(Vehiculo):
         self.estilo = estilo
         self.cilindraje = cilindraje
 
+    def mostrar(self):
+        print("Datos de la moto placa  " + str(self.placa))
+        print("Marca: " + str(self.marca), "# de ruedas: " + str(self.c_de_ruedas), "kilometraje: " + str(self.k), "consumo por km: " +str(self.cporkm),"estilo: "+ str(self.estilo), "cilindraje: " + str(self.cilindraje))
 
+carro1 = Auto("YRQ-444", "Mercedez Benz", 4 , 11000, 1000, "2010", "Regular")
+carro2 = Auto("REF-233", "Toyota", 4 , 120000, 15000, "2010", "diessel")
+carro3 = Auto("345678", "Subaru", 4 , 1000, 1030, "2010", "plus 91")
+carro4 = Auto("LOL-2354", "Mitsubishi montero", 4 , 500, 1230, "2010", "diessel")
 
+moto1 = Moto("ewr-566","Honda", 2,130000,140, "Chopper","200cc")
+moto2 = Moto("rfi-321","Honda", 2,1300,100, "Chopper","200cc")
+moto3 = Moto("79292","Honda", 2,20000,20, "Chopper","200cc")
+moto4 = Moto("455-rfe","Honda", 2,10000,30, "Chopper","200cc")
+
+lista_carros = [carro1,carro2,carro3,carro4,moto1,moto2,moto3,moto4]
+
+def vehiculo_kms(vehiculos):
+    if not isinstance(vehiculos,list):
+        return "Error"
+
+    for vehiculo in vehiculos:
+        if vehiculo.k > 10000:
+
+            vehiculo.mostrar()
+#vehiculo_kms(lista_carros)
 
 
