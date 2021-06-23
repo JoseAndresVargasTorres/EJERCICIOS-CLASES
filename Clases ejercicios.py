@@ -62,6 +62,63 @@ salario_mayor(lista_empleados)
 
 
 
+"""
+3. Herencia. Se desea modelar un problema para manejar objetos con un nivel de
+jerarquia. Se va a definir una clase padre llamada vehiculo que va a contener: placa
+(string), marca, cantidad de ruedas, kilometraje y consumo por km. Esta clase padre
+va a tener varios metodos: mostrar, hacerViaje(kms) que actualiza el kilometraje del
+vehiculo.
+
+A su vez se van a definir 2 subclases, la primera llamada auto, que ademas de los
+atributos definidos en la clase vehiculo, tiene marca. modelo, combustible. Esta
+clase va a tener un metodo mostrar. La segunda subclase se llama moto y va a tener
+ademas de los atributos heredados los siguientes: estilo, cilindraje y va tener un
+metodo mostrar.
+
+Defina las clases Vehiculo, Auto y Moto.
+ii.
+Defina una lista de instancias de ambos vehiculos. Muestre los
+datos de los vehiculos que tengan mas de 10,000 kms.
+
+"""
+
+class Vehiculo:
+    def __init__(self,placa,marca,c_de_ruedas,k,cporkm):
+        self.placa = placa
+        self.marca = marca
+        self.c_de_ruedas = c_de_ruedas
+        self.k = k
+        self.cporkm = cporkm
+
+    def mostrar(self):
+        print("El número de placa es: ".format(self.placa))
+        print("La marca del carro es: ".format(self.marca))
+        print("La cantidad de ruedas corresponde a: ".format(self.c_de_ruedas))
+        print("El kilometraje corresponde a: ".format(self.k))
+        print("El consumo por km corresponde a: ".format(self.cporkm))
+
+    def hacer_viaje(self,kms):
+        self.k += kms
+
+vehiculo1 = Vehiculo("YRQ-466","Toyota",4,1000,)
+
+class Auto(Vehiculo):
+    def __init__(self,placa,marca,c_de_ruedas,k,cporkm,modelo,combustible):
+        super(Auto, self).__init__(placa,marca,c_de_ruedas,k,cporkm)
+        self.modelo = modelo
+        self.combustible = combustible
+
+    def mostrar(self):
+        print("Datos del auto" + str(self.placa))
+        print(self.marca,self.c_de_ruedas,self.k,self.k,self.cporkm,self.modelo,self.combustible)
+
+class Moto(Vehiculo):
+    def __init__(self,placa,marca,c_de_ruedas,k,cporkm,estilo,cilindraje):
+        super().__init__(placa,marca,c_de_ruedas,k,cporkm)
+        self.estilo = estilo
+        self.cilindraje = cilindraje
+
+
 
 
 
