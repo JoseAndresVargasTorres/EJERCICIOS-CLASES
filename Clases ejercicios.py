@@ -91,15 +91,20 @@ class Vehiculo:
         self.cporkm = cporkm
 
     def mostrar(self):
-        print("El número de placa es: ".format(str(self.placa)))
-        print("La marca del carro es: ".format(self.marca))
-        print("La cantidad de ruedas corresponde a: ".format(self.c_de_ruedas))
-        print("El kilometraje corresponde a: ".format(self.k))
-        print("El consumo por km corresponde a: ".format(self.cporkm))
+        print("El número de placa es: {} ".format(str(self.placa)))
+        print("La marca del carro es: {} ".format(self.marca))
+        print("La cantidad de ruedas corresponde a: {} ".format(self.c_de_ruedas))
+        print("El kilometraje corresponde a: {} ".format(self.k))
+        print("El consumo por km corresponde a: {} ".format(self.cporkm))
 
     def hacer_viaje(self,kms):
         self.k += kms
-
+        print(self.k)
+""""
+#carro5 = Vehiculo("LOL-2354", "Mitsubishi montero", 4 , 500, 1230)
+#carro5.mostrar()
+#carro5.hacer_viaje(20)
+"""
 
 
 class Auto(Vehiculo):
