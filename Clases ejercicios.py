@@ -456,8 +456,8 @@ class Estudiante:
     def get_cursos(self):
         return self.lista_de_cursos
 
-    def agregar_curso(self,codigo,semestre,año,nota):
-        for i in self.lista_de_cursos:
+    #def agregar_curso(self,codigo,semestre,año,nota):
+     #   for i in self.lista_de_cursos:
 
 
     def mostrar(self):
@@ -468,15 +468,43 @@ class Estudiante:
         print("El  año corresponde a:  {}".format(self.lista_de_cursos[2]))
         print("La nota obtenida por el estudiante corresponde a:  {}".format(self.lista_de_cursos[3]))
 
+estudiante1 = Estudiante("José Andrés","2021453583", [["1130",1,2016,60],["1202",2,2014,70]])
+
+estudiante4 = Estudiante("Fernanda", "2021342312", [["1091",1,2010,60],["2012",2,2009,70],["2122",2,2014,80]])
+estudiante5 = Estudiante("Manuela", "2014097637", [["1101",1,2014,40],["1102",2,2018,50],["1230",2,2020,100]])
+
+lista = [estudiante1,estudiante4,estudiante5]
+def promedio(carnet,lista):
+    suma_notas = 0
+    contador = 0
+    for i in lista:
+        if i.carnet == carnet :
+
+            for j in i.lista_de_cursos :
+                suma_notas += j[3]
+                contador +=1
+            promedio_final = suma_notas/contador
+            return promedio_final
+        else:
+            return "El carnet {} no existe".format(carnet)
 
 
 
-estudiante1 = Estudiante("José Andrés", "2021453583", [["1130",2,2020,50]])
-print(estudiante1.agregar_curso("1102", 2, 2018, 60))
+print(promedio("20213442112", lista))
 
+"""
 
+lista_estudiantes = [estudiante1,estudiante2,estudiante3,estudiante4,estudiante5]
 
+estudiante1.mostrar()
+"""
+"""
+estudiante1 = Estudiante("José Andrés", "2021453583", ["1101",1,2014,60])
+estudiante2 = Estudiante("Felipe", "2018765423", [["1130",1,2016,60],["1202",2,2014,70]])
+estudiante3 = Estudiante("Alonso", "2019060787", [["1221",1,2017,60],["1012",2,2019,70],["1210",2,2021,80]["3210",2,2010,64]])
+estudiante4 = Estudiante("Fernanda", "2021453583", [["1091",1,2010,60],["2012",2,2009,70],["2122",2,2014,80]])
+estudiante5 = Estudiante("Manuela", "2014097637", [["1101",1,2014,40],["1102",2,2018,50],["1230",2,2020,100]])
 
-
+"""
 
 
