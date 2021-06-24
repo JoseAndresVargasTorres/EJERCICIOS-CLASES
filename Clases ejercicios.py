@@ -258,14 +258,14 @@ class Articulo:
         print("Cantidad de ventas:   {}".format(str(self.cantidad_de_ventas)))
 
     def venta(self,cantidad):
-        self.cantidad_de_ventas = cantidad
+        self.cantidad_de_ventas += cantidad
         return self.cantidad_de_ventas
     def devolucion(self,cantidad):
-        self.cantidad_de_ventas = cantidad
+        self.cantidad_de_ventas -= cantidad
         return self.cantidad_de_ventas
 
 
-articulo1 = Articulo("CD", "How deep is your love", 10000, 30, "Beegees",0)
+articulo1 = Articulo("DVD", "How deep is your love", 10000, 30, "Beegees",0)
 articulo1.venta(34)
 articulo1.devolucion(21)
 
@@ -273,29 +273,50 @@ articulo2 = Articulo("DVD", "November Rain", 15000, 30, "Lez Zeppelin",0)
 articulo2.venta(54)
 articulo2.devolucion(34)
 
-articulo3 = Articulo("CD", "Dancing Queen", 1300, 30, "ABBA",0)
+articulo3 = Articulo("DVD", "Dancing Queen", 1300, 30, "ABBA",0)
 articulo3.venta(21)
 articulo3.devolucion(12)
 
 articulo4 = Articulo("DVD", "Imagine", 5000, 30, "John Lennon",0)
-articulo4.venta(10)
-articulo4.devolucion(43)
+articulo4.venta(30)
+articulo4.devolucion(1)
 
 
 lista_articulos = [articulo1,articulo2,articulo3,articulo4]
 
 
 def top(articulos):
+    global devolucion
     if not isinstance(articulos,list):
         return "ERROR"
-    mayor_ventas = articulo1.cantidad_de_ventas
-    menor_ventas = articulo1.cantidad_de_ventas
+    mayor = 0
+
+    venta_mayor = None
     for articulo in articulos:
-        if articulo > mayor_
+
+
+       if articulo.tipo == "DVD":
+            if mayor < articulo.cantidad_de_ventas:
+                mayor = articulo.cantidad_de_ventas
+                venta_mayor = articulo
+
+    menor = venta_mayor.cantidad_de_ventas
+    devolucion = None
+    for articulo in articulos:
+        if articulo.tipo == "DVD":
+            if mayor < articulo.cantidad_de_ventas:
+                pass
+            else:
+                mayor = articulo.cantidad_de_ventas
+                devolucion = articulo
+    print("El disco con más ventas corresponde a:  "),  str(venta_mayor.mostrar())
+    print("El disco con más devoluciones corresponde a:  "),str(devolucion.mostrar())
 
 
 
 
+
+top(lista_articulos)
 
 
 
