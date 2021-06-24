@@ -28,14 +28,14 @@ class VehiculoAutonomo:
 
     def set_autonomia(self,rango):
         self.autonomia = rango
-        return self.autonomia
+        #return self.autonomia
 
     def add_auto_pilot(self):
-        self.piloto_automatico = "True"
+        self.piloto_automatico = True
         #return "Sí posee piloto automático"
 
     def remove_auto_pilot(self):
-        self.piloto_automatico = "False"
+        self.piloto_automatico = False
         #return "No tiene piloto automático"
 
     def set_price(self,dolares):
@@ -48,16 +48,17 @@ class VehiculoAutonomo:
         if dolares > 40000:
             self.rango_de_precio = "premium"
             #print("premium")
-vehiculo1 = VehiculoAutonomo("12345","blanco",2020,"Caviar Model","True","economico",45)
-vehiculo2 = VehiculoAutonomo("54663","rojo",2019,"Nissan","False","economico",45)
-vehiculo3 = VehiculoAutonomo("JIRT34","negro",2021,"Hyundai","True","economico",45)
-vehiculo4 = VehiculoAutonomo("JOE34","azul",2022,"Subaru","False","economico",45)
+vehiculo1 = VehiculoAutonomo("12345","blanco",2020,"Caviar Model",True,"economico",45)
+vehiculo2 = VehiculoAutonomo("54663","rojo",2019,"Nissan",False,"economico",45)
+vehiculo3 = VehiculoAutonomo("JIRT34","negro",2021,"Hyundai",True,"economico",45)
+vehiculo4 = VehiculoAutonomo("JOE34","azul",2022,"Subaru",False,"economico",45)
 vehiculo1.mostrar()
 lista_vehiculos = [vehiculo1,vehiculo2,vehiculo3,vehiculo4]
 
 def posibles_candidatos(lista,color,rango_precio,modelo):
     for vehiculo in lista:
-        if vehiculo.color == color and vehiculo.rango_de_precio == rango_precio and vehiculo.modelo == modelo:
+        if vehiculo.color == color and vehiculo.rango_de_precio == rango_precio and \
+                vehiculo.modelo == modelo:
             print("La ID del vehículo que usted desea es:   {}".format(vehiculo.ID))
 
 
