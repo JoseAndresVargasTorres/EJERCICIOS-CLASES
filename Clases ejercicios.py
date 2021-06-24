@@ -443,7 +443,8 @@ def solicita(carros,tipo,calif_minima):
 
 
 
-class Estudiante
+class Estudiante:
+    def __init__(self,carrera,curso,año)
 
 
 
