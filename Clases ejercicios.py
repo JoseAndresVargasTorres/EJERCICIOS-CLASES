@@ -409,10 +409,11 @@ class Uber:
         if self.tipo_vehiculo == "economico":
             self.monto_del_viaje += 300 * kilometros
         else:
-            self.monto_del_viaje += 300 * kilometros
+            self.monto_del_viaje += 500 * kilometros
 
     def set_calificacion(self,calificacion):
-        self.calificacion = calificacion
+        nueva_calificacion = ((self.calificacion * self.cantidad_viajes_realizados + calificacion))/(self.cantidad_viajes_realizados+1)
+        return nueva_calificacion
 
 
         print("La calificación de estrellas corresponde a ", self.calificacion)
@@ -424,12 +425,12 @@ class Uber:
         return self.cantidad_viajes_realizados
 
 
-carro1 = Uber("TRE-111","Toyota", 2009, "libre","economico", 4, 1200,5500,4)
+carro1 = Uber("TRE-111","Toyota", 2009, "libre","economico", 4, 1200,5500,5)
 carro2 = Uber("529874","Mitsubishi", 2019, "libre","economico", 5, 1200,5300,5)
-carro3 = Uber("423434","Stepway", 2014, "libre","economico", 7, 2200,14600,2)
-carro4 = Uber("ERW-EW1","Suzuki", 2004, "libre","economico", 12, 1230,14000,1)
-carro5 = Uber("RET-567","Nissan", 2012, "libre","economico", 4, 1180,3600,3)
-
+carro3 = Uber("423434","Stepway", 2014, "libre","economico", 7, 2200,14600,5)
+carro4 = Uber("ERW-EW1","Suzuki", 2004, "libre","economico", 12, 1230,14000,5)
+carro5 = Uber("RET-567","Nissan", 2012, "libre","economico", 4, 1180,3600,5)
+print(carro1.set_calificacion(4))
 
 lista_carros = [carro1,carro2,carro3,carro4,carro5]
 
@@ -527,7 +528,7 @@ def promedio(carnet,lista):
 
 
 
-print(promedio("2021453583", lista))
+#print(promedio("2021453583", lista))
 
 
 
