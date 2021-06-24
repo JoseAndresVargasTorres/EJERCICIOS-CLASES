@@ -456,8 +456,23 @@ class Estudiante:
     def get_cursos(self):
         return self.lista_de_cursos
 
+    def agregar_curso(self,codigo,semestre,año,nota):
+        for i in self.lista_de_cursos:
 
 
+    def mostrar(self):
+        print("El carnet del estudiante es:  {}".format(self.carnet))
+        print("El nombre del estudiante es:  {}".format(self.nombre))
+        print("El código del curso corresponde a:  {}".format(self.lista_de_cursos[0]))
+        print("El semestre corresponde al:  # {}".format(self.lista_de_cursos[1]))
+        print("El  año corresponde a:  {}".format(self.lista_de_cursos[2]))
+        print("La nota obtenida por el estudiante corresponde a:  {}".format(self.lista_de_cursos[3]))
+
+
+
+
+estudiante1 = Estudiante("José Andrés", "2021453583", [["1130",2,2020,50]])
+print(estudiante1.agregar_curso("1102", 2, 2018, 60))
 
 
 
