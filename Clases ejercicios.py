@@ -444,7 +444,19 @@ def solicita(carros,tipo,calif_minima):
 
 
 class Estudiante:
-    def __init__(self,carrera,curso,año)
+    def __init__(self,nombre,carnet,lista_de_cursos):
+        self.nombre = nombre
+        self.carnet = carnet
+        self.lista_de_cursos = lista_de_cursos
+
+    def get_carnet(self):
+        return self.carnet
+    def get_nombre(self):
+        return self.nombre
+    def get_cursos(self):
+        return self.lista_de_cursos
+
+
 
 
 
