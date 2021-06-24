@@ -201,11 +201,11 @@ class Camion:
         self.viajes_realizados +=1
 
 
-camion1 =Camion("YRQ-466","Toyota",2018,"libre",1000,3)
-camion2 =Camion("324566","Suzuki",2014,"libre",10000,3)
-camion3 =Camion("529729","Nissan",2017,"libre",15000,3)
-camion4 =Camion("EWD-788","Hyundai",2019,"libre",500,3)
-camion5 =Camion("POO-456","Subaru",2011,"libre",3000,3)
+camion1 =Camion("YRQ-466","Toyota",2018,"libre",1000,13)
+camion2 =Camion("324566","Suzuki",2014,"libre",10000,6)
+camion3 =Camion("529729","Nissan",2017,"libre",15000,12)
+camion4 =Camion("EWD-788","Hyundai",2019,"libre",500,18)
+camion5 =Camion("POO-456","Subaru",2011,"libre",3000,9)
 
 lista_camiones = [camion1,camion2,camion3,camion4,camion5]
 
@@ -219,7 +219,20 @@ def pedido(camiones, cap_minima):
 
 #pedido(lista_camiones,9000)
 
+def mayor(camiones):
+    if not isinstance(camiones,list):
+        return "ERROR"
+    mayor = 0
+    mayor_viajes = None
+    for camion in camiones:
+        if camion.viajes_realizados > mayor:
+            mayor = camion.viajes_realizados
+            mayor_viajes = camion
 
+    print("El camión con más cantidad de viajes corresponde a:   ")
+    return mayor_viajes.mostrar()
+
+#mayor(lista_camiones)
 
 """
 
@@ -430,7 +443,7 @@ carro2 = Uber("529874","Mitsubishi", 2019, "libre","economico", 5, 1200,5300,5)
 carro3 = Uber("423434","Stepway", 2014, "libre","economico", 7, 2200,14600,5)
 carro4 = Uber("ERW-EW1","Suzuki", 2004, "libre","economico", 12, 1230,14000,5)
 carro5 = Uber("RET-567","Nissan", 2012, "libre","economico", 4, 1180,3600,5)
-print(carro1.set_calificacion(4))
+#print(carro1.set_calificacion(4))
 
 lista_carros = [carro1,carro2,carro3,carro4,carro5]
 
@@ -507,7 +520,7 @@ class Estudiante:
 estudiante1 = Estudiante("José Andrés","2021453583", [["1130",1,2016,60],["1202",2,2014,70]])
 estudiante4 = Estudiante("Fernanda", "2021342312", [["1091",1,2010,60],["2012",2,2009,70],["2122",2,2014,80]])
 estudiante5 = Estudiante("Manuela", "2014097637", [["1101",1,2014,40],["1102",2,2018,50],["1230",2,2020,100]])
-#print(estudiante4.agregar_curso("2012",1,2013,70))
+#estudiante4.mostrar())
 lista = [estudiante1,estudiante4,estudiante5]
 def promedio(carnet,lista):
     suma_notas = 0
@@ -529,7 +542,76 @@ def promedio(carnet,lista):
 
 
 #print(promedio("2021453583", lista))
+    """"
+class Nodo:
+    def __init__(self,next = None, valor = None):
+        self.next = next
+        self.valor = valor
+        
+class Lista:
+    def __init__(self):
+        
+        self.head = []
+        self.largo = 0
+
+    def crear_lista(self):
+        
+
+    def borrar(self,item):
+        for i in
+
+
+    """
+
+class Animal:
+    def __init__(self,pesokg,tamano,color,edad):
+        self.pesokg = pesokg
+        self.tamano = tamano
+        self.color = color
+        self.edad = edad
+
+    def movimiento(self,tipo):
+        if tipo == 1:
+            print("La velocidad del animal es andando")
+        elif tipo == 2:
+            print("La velocidad del animal es corriendo")
+        elif tipo == 3:
+            print("La velocidad del animal es detenido")
+
+    def comer(self):
+        print("El animal está comiendo")
+
+class Elefante(Animal):
+    def __init__(self,pesokg,tamano,color,edad,trompa,colmillos):
+        super().__init__(pesokg,tamano,color,edad)
+        self.trompa = trompa
+        self.colmillos = colmillos
+
+    def jugarTrompa(self):
+        print("El elefante está jugando con su trompa")
+    def comer(self):
+        print("El elefante está inhalando maní")
 
 
 
+animal1 = Animal(200,"grande","blanco",10)
+animal2 = Animal(400,"mediano","negro",20)
+animal3 = Animal(500,"grande","rojo",5)
+animal4 = Animal(100,"pequeño","verde",15)
+animal5 = Animal(200,"pequeño","azul",12)
 
+elefante1 = Elefante(300,"grande","gris",14,"corta","largos")
+elefante2 = Elefante(100,"pequeño","blanco",13,"mediana","cortos")
+elefante3 = Elefante(200,"mediano","negro",9,"larga","medianos")
+elefante4 = Elefante(500,"grande","gris",4,"corta","cortos")
+
+def func(obj):
+    obj.comer()
+
+obj_an = animal1
+obj_elef = elefante1
+
+#func(obj_an)
+#func(obj_elef)
+
+#elefante3.jugarTrompa()
