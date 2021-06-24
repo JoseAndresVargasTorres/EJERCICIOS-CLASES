@@ -316,20 +316,134 @@ def top(articulos):
 
 
 
-top(lista_articulos)
+#top(lista_articulos)
+
+
+"""
+A continuacion se presenta una serie de ejercicios que debe desarrollado forma clara,
+ordenada y legible. Cualquier intento de fraude sera tratado de acuerdo al reglamento que
+para tal proposito ha dispuesto el Instituto Tecnologico de Costa Rica. Adicionalmente.
+durante el desarrollo de la prueba no se permite el uso de dispositivos electronicos, fuera de
+los estrictamente necesarios para la realizacion de la misma. Dispone de dos horas y treinta
+minutos para realizar la prueba.
+
+La prueba debe ser desarrollado a mano, luego escaneada y convertida a un archivo PDF.
+La entrega se debe realizar en la seccion de Evaluationes del TEC Digital. Finalmente,
+dispone de 24 horas para copiar su examen en un archivo de Python y subir el .py al TEC
+Digital
+Si tuviera problemas de infraestructura durante el desarrollo de la prueba, debe comunicarlo
+al profesor al correo learaya@itcr.ac.cr o al telefono 89699250 para buscar una solucion.
+
+1. Se desea construir un objeto tipo Uber con los siguientes atributos
+. Numero de placa
+. Marca
+. Ano
+. Estado del vehiculo (libre, ocupado, reparacion)
+
+. Tipo de vehiculo (economico, premium)
+. Cantidad de viajes realizados
+. Monto de viaje (el actual)
+. Acumulado de monto por viajes
+Calificacion (de 0 a 5 estrellas). Inicialmente, los conductores empiezan con 5
+estrellas
+
+Los metodos a implementar son:
+. mostrar(), que imprime todos los atributos del objeto
+. reset (), que pone en cero la cantidad de viajes realizados
+
+. enviar reparacion(), que actualiza el estado del camion a reparacion
+. recibir reparation (), que actualiza el estado del camion a libre
+viaje(kilometros), que aumenta en 1 la cantidad de viajes realizados y calcula
+
+l monto a pagar por el viaje, de acuerdo a la cantidad de kilometros de viaje.
+Considere que los viajes economicos se pagan a 300 por kilometro y los premium
+a 500 por kilometro
+set_calificacion(calificacion), que calcula el promedio de estrellas que tiene el
+objeto basado en la calificacion actual y la nueva calificacion recibida.
+. Ademas, debe existir los metodos get_tipo(), get estado() y get_viajes() que retor-
+nan los datos correspondientes
+Utilizando el lenguaje de programacion Python, se le solicita lo siguiente:
+
+(a) Defina una clase Uber para el manejo de este objeto. 40 puntos.
+(b) Luego de tener definida la clase, se asume que se tiene la lista de instancias y que se
+quiere construir una funcion llamada solicita(lista, tipo, calificacion minima), que
+recibe esa lista de instancias para saber cuales vehiculos podran transportar un cliente
+segun un tipo de vehiculo y la calificacion minima solicitada por el cliente. 30 puntos.
+
+"""
+
+class Uber:
+    def __init__(self, placa,marca,anno,e_v,t_v,cdvr,m_d_v,acum_monto_de_viajes,calificacion):
+        self.placa = placa
+        self.marca = marca
+        self.anno = anno
+        self.estado_vehiculo = e_v
+        self.tipo_vehiculo = t_v
+        self.cantidad_viajes_realizados = cdvr
+        self.monto_del_viaje = m_d_v
+        self.acumulado = acum_monto_de_viajes
+        self.calificacion = calificacion
+
+    def mostrar(self):
+        print("El número de placa es:  {}".format(str(self.placa)))
+        print("La marca del vehículo es:  {}".format(str(self.marca)))
+        print("El año del vehículo:  {}".format(str(self.anno)))
+        print("El estado del vehículo es:  {}".format(str(self.estado_vehiculo)))
+        print("El tipo de vehículo es:  {}".format(str(self.tipo_vehiculo)))
+        print("La cantidad de viajes realizados es:  {}".format(str(self.cantidad_viajes_realizados)))
+        print("El monto del viaje es:  {}".format(str(self.monto_del_viaje)))
+        print("El acumulado del viaje es:  {}".format(str(self.acumulado)))
+        print("La calificación del vehículo es:  {}".format(str(self.calificacion)))
+
+    def reset(self):
+        self.cantidad_viajes_realizados = 0
+
+    def enviar_reparación(self):
+        self.estado_vehiculo = "reparacion"
+
+    def recibir_reparacion(self):
+        self.estado_vehiculo = "libre"
+
+    def viaje(self,kilometros):
+        self.cantidad_viajes_realizados += 1
+        if self.tipo_vehiculo == "economico":
+            self.monto_del_viaje += 300 * kilometros
+        else:
+            self.monto_del_viaje += 300 * kilometros
+
+    def set_calificacion(self,calificacion):
+        self.calificacion = calificacion
+
+
+        print("La calificación de estrellas corresponde a ", self.calificacion)
+    def get_tipo(self):
+        return self.tipo_vehiculo
+    def get_estado(self):
+        return self.estado_vehiculo
+    def get_viajes(self):
+        return self.cantidad_viajes_realizados
+
+
+carro1 = Uber("TRE-111","Toyota", 2009, "libre","economico", 4, 1200,5500,4)
+carro2 = Uber("529874","Mitsubishi", 2019, "libre","economico", 5, 1200,5300,5)
+carro3 = Uber("423434","Stepway", 2014, "libre","economico", 7, 2200,14600,2)
+carro4 = Uber("ERW-EW1","Suzuki", 2004, "libre","economico", 12, 1230,14000,1)
+carro5 = Uber("RET-567","Nissan", 2012, "libre","economico", 4, 1180,3600,3)
+
+
+lista_carros = [carro1,carro2,carro3,carro4,carro5]
+
+def solicita(carros,tipo,calif_minima):
+    for carro in carros:
+        if carro.tipo_vehiculo == tipo and carro.calificacion >= calif_minima:
+            print("El carro placa {} puede dar el servicio".format(carro.placa))
+
+#solicita(lista_carros,"economico",3)
 
 
 
 
-
-
-
-
-
-
-
-
-
+class Estudiante
 
 
 
