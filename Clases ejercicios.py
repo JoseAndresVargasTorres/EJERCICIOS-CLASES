@@ -440,7 +440,35 @@ def solicita(carros,tipo,calif_minima):
 
 #solicita(lista_carros,"economico",3)
 
+"""
+. Para representar los datos de un estudiante del TEC, se va a manejar un objeto
+Estudiante que permite almacenar: nombre, carnet, lista de cursos (va a iniciar en nulo
+al crear una instancia). La lista de cursos va a ser una lista de listas, donde cada curso
+se representa por un codigo de curso, semestre, ano y nota. Un ejemplo de un curso
 
+seria [1101, 1, 2014, 60], que indicaria que el curso 1101 fue llevado por el estudiante
+en el semestre 1 del ano 2014 y obtuvo una nota de 60. Los metodos serian:
+get_carnet(): retorna el carnet del estudiante
+get_nombre(): retorna el nombre del estudiante
+get _cursos(): retorna la lista de cursos del estudiante
+
+agregar_curso(codigo, semestre, ano, nota): verifica si el curso no existe en el
+semestre y ano dados, en este caso lo incluye en la lista. En caso que el curso ya este
+
+registrado, se debe mostrar un mensaje de error.
+mostrar(): muestra el carnet, nombre y para cada curso: el codigo, semestre, ano y
+
+nota obtenida por el estudiante
+
+a. Defina una clase en Python para manejar el objeto Estudiante. (35 pts).
+b. b. Asuma que se tiene una lista de instancias del objeto Estudiante. Defina
+
+una funcion llamada promedio (carnet, lista) , que reciba un carnet,
+a lista de instancias del objeto Estudiante y muestre los datos del estudiante,
+asi como el promedio de notas. Si el carnet no existe, debe indicarse por
+medio de otro mensaje. (30 pts)
+
+"""
 
 
 class Estudiante:
@@ -458,21 +486,27 @@ class Estudiante:
 
     #def agregar_curso(self,codigo,semestre,año,nota):
      #   for i in self.lista_de_cursos:
+    def agregar_curso(self,codigo,semestre,año,nota):
+        for i in self.lista_de_cursos:
+            if i[0] == codigo and i[1] == semestre and i[2] == año:
+                return "El curso ya está registrado"
+
+        self.lista_de_cursos += [[codigo,semestre,año,nota]]
+        return self.lista_de_cursos
 
 
     def mostrar(self):
         print("El carnet del estudiante es:  {}".format(self.carnet))
         print("El nombre del estudiante es:  {}".format(self.nombre))
-        print("El código del curso corresponde a:  {}".format(self.lista_de_cursos[0]))
-        print("El semestre corresponde al:  # {}".format(self.lista_de_cursos[1]))
-        print("El  año corresponde a:  {}".format(self.lista_de_cursos[2]))
-        print("La nota obtenida por el estudiante corresponde a:  {}".format(self.lista_de_cursos[3]))
-
+        for cursos in self.lista_de_cursos:
+            print("El código del curso corresponde a:  {}".format(cursos[0]))
+            print("El semestre en que se llevó el curso corresponde a:   {}".format(cursos[1]))
+            print("El año en el que se llevó el curso corresponde a:  {}".format(cursos[2]))
+            print("La nota que obtuvo el estudiante en el curso corresponde a:   {}".format(cursos[3]))
 estudiante1 = Estudiante("José Andrés","2021453583", [["1130",1,2016,60],["1202",2,2014,70]])
-
 estudiante4 = Estudiante("Fernanda", "2021342312", [["1091",1,2010,60],["2012",2,2009,70],["2122",2,2014,80]])
 estudiante5 = Estudiante("Manuela", "2014097637", [["1101",1,2014,40],["1102",2,2018,50],["1230",2,2020,100]])
-
+#print(estudiante4.agregar_curso("2012",1,2013,70))
 lista = [estudiante1,estudiante4,estudiante5]
 def promedio(carnet,lista):
     suma_notas = 0
@@ -484,27 +518,17 @@ def promedio(carnet,lista):
                 suma_notas += j[3]
                 contador +=1
             promedio_final = suma_notas/contador
+            i.mostrar()
+            print("El promedio del estudiante con el carnet {} corresponde a".format(carnet))
+
             return promedio_final
         else:
             return "El carnet {} no existe".format(carnet)
 
 
 
-print(promedio("20213442112", lista))
+print(promedio("2021453583", lista))
 
-"""
 
-lista_estudiantes = [estudiante1,estudiante2,estudiante3,estudiante4,estudiante5]
-
-estudiante1.mostrar()
-"""
-"""
-estudiante1 = Estudiante("José Andrés", "2021453583", ["1101",1,2014,60])
-estudiante2 = Estudiante("Felipe", "2018765423", [["1130",1,2016,60],["1202",2,2014,70]])
-estudiante3 = Estudiante("Alonso", "2019060787", [["1221",1,2017,60],["1012",2,2019,70],["1210",2,2021,80]["3210",2,2010,64]])
-estudiante4 = Estudiante("Fernanda", "2021453583", [["1091",1,2010,60],["2012",2,2009,70],["2122",2,2014,80]])
-estudiante5 = Estudiante("Manuela", "2014097637", [["1101",1,2014,40],["1102",2,2018,50],["1230",2,2020,100]])
-
-"""
 
 
